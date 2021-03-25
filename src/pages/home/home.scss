@@ -1,0 +1,65 @@
+page-home {
+}
+
+.nav-buttons {
+  color: rgb(212, 212, 212);
+}
+
+.big-buttons {
+  width: 100%;
+  height: 70px;
+  color: white;
+  font-size: x-large;
+  text-transform: uppercase;
+  background-color: rgb(104, 104, 104);
+  margin-bottom: 15px;
+  border-radius: 5px;
+}
+
+.delete-buttons {
+  position: absolute;
+  right: 13px;
+  top: 13px;
+  background-color: transparent;
+  border: 0;
+}
+
+ion-item {
+  padding-left: 0 !important;
+  background-color: #121212 !important;
+  .item-inner {
+    border-bottom: 1px solid #5a5a5a !important;
+  }
+  ion-input {
+    color: white;
+  }
+}
+
+.done-button {
+  width: 100%;
+  margin: 10px 0 15px 0;
+}
+
+.big-buttons {
+  position: relative;
+}
+
+.dark {
+  background-color: #121212;
+}
+
+.dark-toolbar {
+  .toolbar-title {
+    color: rgb(212, 212, 212);
+  }
+  .toolbar-background-md {
+    background-color: #121212;
+  }
+}
+
+.flex {
+  display: flex;
+  button {
+    width: 35px;
+  }
+}

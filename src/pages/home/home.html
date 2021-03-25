@@ -1,0 +1,69 @@
+<ion-header collapse="condense">
+  <ion-toolbar class="dark-toolbar">
+    <!--color="dark"-->
+    <ion-title>Social Linker</ion-title>
+    <ion-buttons end class="flex">
+      <button ion-button (click)="toggleTrash()" class="nav-buttons">
+        <ion-icon slot="icon-only" name="trash"></ion-icon>
+      </button>
+      <button ion-button (click)="toggleAdd()" class="nav-buttons">
+        <ion-icon slot="icon-only" name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding class="dark">
+  <div class="new-input" *ngIf="add">
+    <ion-item>
+      <ion-input
+        required
+        type="text"
+        [(ngModel)]="newTitle"
+        placeholder="Title*"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input
+        required
+        type="text"
+        [(ngModel)]="newUrl"
+        placeholder='Full URL* (https://www.DOMAIN.com)'
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input
+        required
+        type="text"
+        [(ngModel)]="newColor"
+        placeholder="Color (CSS)"
+      ></ion-input>
+    </ion-item>
+    <button
+      class="done-button"
+      ion-button
+      (click)="addButton()"
+      [disabled]="!newTitle || !newUrl"
+    >
+      Done
+    </button>
+  </div>
+
+  <div *ngFor="let button of buttons" class="big-buttons">
+    <button
+      class="big-buttons"
+      (click)="buttonClick(button.url)"
+      [style.background-color]="button.color"
+    >
+      <button
+        *ngIf="trash"
+        ion-button
+        (click)="trashItem($event, button.title)"
+        class="delete-buttons"
+      >
+        <ion-icon slot="icon-only" name="trash"></ion-icon>
+      </button>
+      {{button.title}}
+    </button>
+  </div>
+</ion-content>

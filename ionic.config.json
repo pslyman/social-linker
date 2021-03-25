@@ -1,0 +1,7 @@
+{
+  "name": "social-linker",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
