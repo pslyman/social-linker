@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.social.linker" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>social-linker</name>
+    <name>Social Linker</name>
     <description>An awesome Ionic/Cordova app.</description>
     <author email="dev@porterlyman.com" href="porterlyman.com">Porter Lyman</author>
     <content src="index.html" />
