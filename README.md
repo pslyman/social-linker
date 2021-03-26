@@ -10,3 +10,7 @@ To add, hit the + icon. Colors are optional (will default to a dark grey).
 - npm install
 
 - ionic serve
+
+![Screenshot](./src/assets/imgs/screenshot.jpg)
+![Screenshot](./src/assets/imgs/screenshot2.jpg)
+![Screenshot](./src/assets/imgs/screenshot3.jpg)
