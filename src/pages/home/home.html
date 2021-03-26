@@ -3,18 +3,24 @@
     <!--color="dark"-->
     <ion-title>Social Linker</ion-title>
     <ion-buttons end class="flex">
+      <button ion-button *ngIf="webView" (click)="toggleWebview()" class="nav-buttons icon-light">
+        <ion-icon slot="icon-only" name="lock" ></ion-icon>
+      </button>
+      <button ion-button *ngIf="!webView" (click)="toggleWebview()" class="nav-buttons">
+        <ion-icon slot="icon-only" name="unlock" ></ion-icon>
+      </button>
       <button ion-button (click)="toggleTrash()" class="nav-buttons">
-        <ion-icon slot="icon-only" name="trash"></ion-icon>
+        <ion-icon slot="icon-only" name="trash" [ngClass]="{'icon-light': trash}"></ion-icon>
       </button>
       <button ion-button (click)="toggleAdd()" class="nav-buttons">
-        <ion-icon slot="icon-only" name="add"></ion-icon>
+        <ion-icon slot="icon-only" name="add"  [ngClass]="{'icon-light': add}"></ion-icon>
       </button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding class="dark">
-  <div class="new-input" *ngIf="add">
+  <div class="new-input" *ngIf="add" [@inputsFade]>
     <ion-item>
       <ion-input
         required
@@ -28,7 +34,7 @@
         required
         type="text"
         [(ngModel)]="newUrl"
-        placeholder='Full URL* (https://www.DOMAIN.com)'
+        placeholder="Full URL* (https://www.DOMAIN.com)"
       ></ion-input>
     </ion-item>
     <ion-item>
@@ -48,22 +54,24 @@
       Done
     </button>
   </div>
-
-  <div *ngFor="let button of buttons" class="big-buttons">
-    <button
-      class="big-buttons"
-      (click)="buttonClick(button.url)"
-      [style.background-color]="button.color"
-    >
+  <div [@cardAnimation]="buttons.length">
+    <div *ngFor="let button of buttons" class="big-buttons">
       <button
-        *ngIf="trash"
-        ion-button
-        (click)="trashItem($event, button.title)"
-        class="delete-buttons"
+        class="big-buttons"
+        (click)="buttonClick(button.url)"
+        [style.background-color]="button.color"
       >
-        <ion-icon slot="icon-only" name="trash"></ion-icon>
+        <button
+          *ngIf="trash"
+          ion-button
+          (click)="trashItem($event, button.title)"
+          class="delete-buttons"
+          [@fadeAnimation]
+        >
+          <ion-icon slot="icon-only" name="trash"></ion-icon>
+        </button>
+        {{button.title}}
       </button>
-      {{button.title}}
-    </button>
+    </div>
   </div>
 </ion-content>

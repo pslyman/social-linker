@@ -8,6 +8,9 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { IonicStorageModule } from '@ionic/storage';
 
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -15,7 +18,7 @@ import { IonicStorageModule } from '@ionic/storage';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp), IonicStorageModule.forRoot()
+    IonicModule.forRoot(MyApp), IonicStorageModule.forRoot(), BrowserAnimationsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -25,7 +28,8 @@ import { IonicStorageModule } from '@ionic/storage';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    InAppBrowser,
+    { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })
-export class AppModule {}
+export class AppModule { }
