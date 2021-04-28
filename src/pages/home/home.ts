@@ -133,7 +133,7 @@ export class HomePage implements OnInit {
       return
     }
 
-    let options = "location=yes,hardwareback=yes,clearsessioncache=yes,clearcache=no,footer=no,hideurlbar=yes,zoom=no,fullscreen:no"
+    let options = "location=yes,hardwareback=yes,clearsessioncache=yes,clearcache=no,footer=no,hideurlbar=yes,zoom=no"
     this.iab.create(url, "_blank", options);
   }
 
