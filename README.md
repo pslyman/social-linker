@@ -1,14 +1,17 @@
 # social-linker
 social-linker is about as simple as it gets: Nice looking shortcuts to social media websites. This app is for people that don't like or use social media apps, but want to easily check in every now and then. Works best if paired with a browser that blocks cross-site cookies and trackers, like Brave. The app is small and lightweight, and takes advantage of Ionic/Cordova. Find the latest signed build <a href="https://github.com/pslyman/social-linker/tree/main/resources/builds">here</a>.
 
-To run each site within the app using Webview, hit the lock icon. 
+## features
+- Lock button: can run sites within the app's Webview. HTTPS is enforced for external links. Cookies, cache, session data, etc, will be entirely contained within the app. 
+- Add button: add sites with Title, URL, and Color (optional. Any CSS color type is acceptable. Default: darkgrey)
+- Trash button: delete any sites you no longer wish to use. 
 
-To delete any sites, hit the delete icon then choose which you'd like to delete.
+## run locally
 
-To add, hit the + icon. Colors are optional (will default to a dark grey).
+- npm install -g @ionic/cli
 
 - npm install
-
+ 
 - ionic serve
 
 ![Screenshot](./src/assets/imgs/screenshot.jpg)
