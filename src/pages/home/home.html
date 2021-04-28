@@ -3,17 +3,35 @@
     <!--color="dark"-->
     <ion-title>Social Linker</ion-title>
     <ion-buttons end class="flex">
-      <button ion-button *ngIf="webView" (click)="toggleWebview()" class="nav-buttons icon-light">
-        <ion-icon slot="icon-only" name="lock" ></ion-icon>
+      <button
+        ion-button
+        *ngIf="webView"
+        (click)="toggleWebview()"
+        class="nav-buttons icon-light"
+      >
+        <ion-icon slot="icon-only" name="lock"></ion-icon>
       </button>
-      <button ion-button *ngIf="!webView" (click)="toggleWebview()" class="nav-buttons">
-        <ion-icon slot="icon-only" name="unlock" ></ion-icon>
+      <button
+        ion-button
+        *ngIf="!webView"
+        (click)="toggleWebview()"
+        class="nav-buttons"
+      >
+        <ion-icon slot="icon-only" name="unlock"></ion-icon>
       </button>
-      <button ion-button (click)="toggleTrash()" class="nav-buttons">
-        <ion-icon slot="icon-only" name="trash" [ngClass]="{'icon-light': trash}"></ion-icon>
+      <button ion-button (click)="toggleEditor()" class="nav-buttons">
+        <ion-icon
+          slot="icon-only"
+          name="create"
+          [ngClass]="{'icon-light': edit}"
+        ></ion-icon>
       </button>
       <button ion-button (click)="toggleAdd()" class="nav-buttons">
-        <ion-icon slot="icon-only" name="add"  [ngClass]="{'icon-light': add}"></ion-icon>
+        <ion-icon
+          slot="icon-only"
+          name="add"
+          [ngClass]="{'icon-light': add}"
+        ></ion-icon>
       </button>
     </ion-buttons>
   </ion-toolbar>
@@ -60,9 +78,19 @@
         class="big-buttons"
         (click)="buttonClick(button.url)"
         [style.background-color]="button.color"
+        [ngClass]="{'align-left': edit}"
       >
         <button
-          *ngIf="trash"
+          *ngIf="edit"
+          ion-button
+          (click)="editItem($event, button)"
+          class="edit-buttons"
+          [@fadeAnimation]
+        >
+          <ion-icon slot="icon-only" name="create"></ion-icon>
+        </button>
+        <button
+          *ngIf="edit"
           ion-button
           (click)="trashItem($event, button.title)"
           class="delete-buttons"
@@ -70,7 +98,9 @@
         >
           <ion-icon slot="icon-only" name="trash"></ion-icon>
         </button>
-        {{button.title}}
+        <div>
+          <p>{{button.title}}</p>
+        </div>
       </button>
     </div>
   </div>

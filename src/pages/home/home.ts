@@ -33,14 +33,14 @@ import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
         transition(":enter", [
           style({ opacity: 0 }),
           animate(
-            ".1s ease-out",
+            ".5s ease-out",
             style({ opacity: 1 })
           ),
         ]),
         transition(":leave", [
           style({ opacity: 1 }),
           animate(
-            ".1s ease-out",
+            ".5s ease-out",
             style({
               opacity: 0,
             })
@@ -92,7 +92,7 @@ export class HomePage implements OnInit {
   buttons = [];
 
   add = false;
-  trash = false;
+  edit = false;
 
   newTitle = "";
   newUrl = "";
@@ -133,7 +133,7 @@ export class HomePage implements OnInit {
       return
     }
 
-    let options = "location=yes,hardwareback=yes,clearsessioncache=yes,clearcache=no,footer=no,hideurlbar=yes,zoom=no"
+    let options = "location=yes,hardwareback=yes,clearsessioncache=yes,clearcache=no,footer=no,hideurlbar=yes,zoom=no,fullscreen:no"
     this.iab.create(url, "_blank", options);
   }
 
@@ -148,8 +148,11 @@ export class HomePage implements OnInit {
     this.add = !this.add;
   }
 
-  toggleTrash() {
-    this.trash = !this.trash;
+  toggleEditor() {
+    this.edit = !this.edit;
+    if (this.edit) {
+      this.add = false;
+    }
   }
 
   toggleWebview() {
@@ -159,8 +162,17 @@ export class HomePage implements OnInit {
 
   trashItem(e, itemName) {
     e.stopPropagation();
-    this.buttons = this.buttons.filter((item) => item.title !== itemName)
+    this.buttons = this.buttons.filter((item) => item.title !== itemName);
     this.saveButtons();
+  }
+
+  editItem(e, selectedItem) {
+    e.stopPropagation();
+    this.buttons = this.buttons.filter((item) => item.title !== selectedItem.title);
+    this.newTitle = selectedItem.title;
+    this.newUrl = selectedItem.url;
+    this.newColor = selectedItem.color;
+    this.add = true;
   }
 
   saveButtons() {
