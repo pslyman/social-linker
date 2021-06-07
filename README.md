@@ -3,8 +3,8 @@ social-linker is about as simple as it gets: Nice looking shortcuts to social me
 
 ## features
 - Lock button: can run sites within the app's Webview. HTTPS is enforced for external links. Cookies, cache, session data, etc, will be entirely contained within the app. 
-- Add button: add sites with Title, URL, and Color (optional. Any CSS color type is acceptable. Default: darkgrey)
-- Trash button: delete any sites you no longer wish to use. 
+- Add button: add sites with Title, URL, and Color (optional. Any CSS color type is acceptable. Default: darkgrey).
+- Edit button: edit or delete any sites.
 
 ## run locally
 
@@ -17,3 +17,5 @@ social-linker is about as simple as it gets: Nice looking shortcuts to social me
 ![Screenshot](./src/assets/imgs/screenshot.jpg)
 ![Screenshot](./src/assets/imgs/screenshot2.jpg)
 ![Screenshot](./src/assets/imgs/screenshot3.jpg)
+
+If you find this app doesn't have the features you need, consider checking out something a little more robust, check out <a href="https://play.google.com/store/apps/details?id=com.tobykurien.webapps">WebApps</a> (not made by me)
